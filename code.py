@@ -7,8 +7,7 @@ import config.MongoStore
 import config.setting
 app = web.application(urls, globals())
 db=config.setting.db
-session = web.session.Session(app, config.MongoStore.MongoStore(db,'sessions'),
-initializer={'login':"", 'user_name':'guest'})
+session = web.session.Session(app, config.MongoStore.MongoStore(db,'sessions'))
 
 def session_hook():
     web.ctx.session = session

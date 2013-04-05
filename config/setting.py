@@ -2,9 +2,11 @@
 # coding: utf-8
 import web
 import pymongo
+import gridfs
 #db = web.database(dbn='mysql', db='py', user='root', pw='noans')
 connection=pymongo.Connection('localhost',27017)
 db=connection.pymongo
+fs=gridfs.GridFS(db)
 render = web.template.render('templetor/', cache=False)
 
 web.config.debug = False
